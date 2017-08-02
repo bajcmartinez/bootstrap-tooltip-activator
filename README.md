@@ -1,13 +1,10 @@
 # Bootstrap Tooltip Activator
-[![npm version](https://badge.fury.io/js/bootstrap-tooltip-activator.svg)](http://badge.fury.io/js/bootstrap-tooltip-activator)
-[![Build Status](https://travis-ci.org/DudaDev/bootstrap-tooltip-activator.svg)](https://travis-ci.org/DudaDev/bootstrap-tooltip-activator) 
-[![Ember Observer Score](http://emberobserver.com/badges/bootstrap-tooltip-activator.svg)](http://emberobserver.com/addons/bootstrap-tooltip-activator) 
 
 Ember addon for Bootstrap tooltips.
 
 ## Installation
 
-* `npm install bootstrap-tooltip-activator --save-dev`
+* `npm install bootstrap4-tooltip-activator --save-dev`
 
 ## Dependencies
 * Bootstrap CSS & JS  
@@ -20,12 +17,10 @@ Ember addon for Bootstrap tooltips.
 | 1.8 through 2.6.1    	| 0.0.1 =< x < 0.1.1         			|
 | 2.6.2 and beyond	   	| >=1.0.0                    			|
 
-## [Demo App](http://DudaDev.github.io/bootstrap-tooltip-activator/)
-
 ## Usage
-* Everything that is wrapped inside the `bootstrap-tooltip-activator` will apply the bootstrap tooltips
+* Everything that is wrapped inside the `bootstrap4-tooltip-activator` will apply the bootstrap tooltips
 ```handlebars
-{{#bootstrap-tooltip-activator}}
+{{#bootstrap4-tooltip-activator}}
 	<button
 		data-toggle="First tip"
 		data-placement="top"
@@ -40,7 +35,7 @@ Ember addon for Bootstrap tooltips.
 		data-original-title="Another tip">
 		Second button
 	</button>
-{{/bootstrap-tooltip-activator}}
+{{/bootstrap4-tooltip-activator}}
 ```
 **Note**: make sure to use the `data-original-title` attribute and not `title`  
 
