@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'bootstrap-tooltip-activator'
+  name: 'bootstrap4-tooltip-activator'
 };

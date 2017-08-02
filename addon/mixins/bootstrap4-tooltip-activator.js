@@ -47,7 +47,7 @@ export default Mixin.create({
 			});
 
 		zombies.forEach(function(el) {
-			el.tooltip('destroy');
+			el.tooltip('dispose');
 			cachedElements.removeObject(el);
 			el.remove();
 		});
@@ -61,7 +61,7 @@ export default Mixin.create({
 		this.set('timer', null);
 		const $tooltips = this.$('[data-toggle="tooltip"]');
 		if ($tooltips && typeof $tooltips.tooltip === 'function') {
-			this.$('[data-toggle="tooltip"]').tooltip('destroy');	
+			this.$('[data-toggle="tooltip"]').tooltip('dispose');
 		}
 	})
 

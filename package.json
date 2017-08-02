@@ -1,7 +1,7 @@
 {
-  "name": "bootstrap-tooltip-activator",
+  "name": "bootstrap4-tooltip-activator",
   "version": "1.0.0",
-  "description": "Ember addon for Bootstrap tooltips",
+  "description": "Ember addon for Bootstrap 4 tooltips",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -11,11 +11,11 @@
     "build": "ember build",
     "test": "ember try:each"
   },
-  "repository": "https://github.com/DudaDev/bootstrap-tooltip-activator",
+  "repository": "https://github.com/bajcmartinez/bootstrap4-tooltip-activator",
   "engines": {
     "node": ">= 0.12.0"
   },
-  "author": "@ramybenaroya",
+  "author": "@bajcmartinez",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",

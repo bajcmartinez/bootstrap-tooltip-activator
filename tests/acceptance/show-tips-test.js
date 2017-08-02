@@ -1,74 +1,55 @@
 import Ember from 'ember';
 import {
-    module, test
+  module, test
 }
-from 'qunit';
+  from 'qunit';
 import startApp from '../../tests/helpers/start-app';
 import config from 'dummy/config/environment';
-
-const INTERVAL = 1000,
-    {
-        RSVP: {
-            Promise
-        }
-    } = Ember;
 
 var application;
 
 module('Acceptance | show tips', {
-    beforeEach: function() {
-        application = startApp();
-    },
+  beforeEach: function() {
+    application = startApp();
+  },
 
-    afterEach: function() {
-        Ember.run(application, 'destroy');
-    }
+  afterEach: function() {
+    Ember.run(application, 'destroy');
+  }
 });
 
 test('tips are being shown and hidden', function(assert) {
-    visit('/');
-    return new Promise(function(resolve /*, reject*/) {
-        andThen(function() {
+  visit('/');
+  andThen(function() {
+    mouseoverButton(0);
+  });
 
-            mouseoverButton(0);
+  function mouseoverButton(i) {
+    let selector = `#button-${i}`;
+    if (i < config.buttons) {
+      triggerEvent(`#button-${i}`, 'mouseover');
 
+      Ember.Test.promise(function (resolve) {
+        window.setTimeout(resolve, 500);
+      });
+      andThen(function() {
+        let $el = find(selector),
+          tooltipId = $el.attr('aria-describedby'),
+          tooltipSelector = `#${tooltipId}`;
+        assert.equal($(tooltipSelector).length, 1);
+
+        triggerEvent(`#button-${i}`, 'mouseout');
+        Ember.Test.promise(function (resolve) {
+          window.setTimeout(resolve, 500);
         });
+        andThen(function() {
+          // Did we removed it
+          assert.equal($(tooltipSelector).length, 0);
 
-        function mouseoverButton(i, prevButtonSelector, prevTooltipSelector) {
-            let selector = `#button-${i}`;
-
-            if (i < config.buttons) {
-                triggerEvent(`#button-${i}`, 'mouseover');
-                andThen(function(){
-                    if (prevButtonSelector) {
-                        triggerEvent(prevButtonSelector, 'mouseout');
-                        andThen(function(){
-                            setTimeout(check, 1000);
-                        });
-                    } else {
-                        check();
-                    }
-
-                });
-
-
-            } else {
-                resolve();
-            }
-
-            function check(){
-                let $el = find(selector),
-                    tooltipId = $el.attr('aria-describedby'),
-                    tooltipSelector = `#${tooltipId}`;
-                findWithAssert(tooltipSelector);
-                if (prevTooltipSelector) {
-                    assert.equal(find(prevTooltipSelector).length, 0);
-                }
-                setTimeout(function() {
-                    mouseoverButton(i + 1, selector, tooltipSelector);
-                }, INTERVAL);
-            }
-        }
-    });
+          mouseoverButton(i+1);
+        });
+      });
+    }
+  }
 
 });

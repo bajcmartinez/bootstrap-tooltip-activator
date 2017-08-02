@@ -7,6 +7,8 @@ module.exports = function(defaults) {
     snippetPaths: ['tests/dummy/snippets']
   });
 
+  app.import('bower_components/tether/dist/css/tether.css');
+  app.import('bower_components/tether/dist/js/tether.js');
   app.import('bower_components/bootstrap/dist/css/bootstrap.css');
   app.import('bower_components/bootstrap/dist/js/bootstrap.js');
 

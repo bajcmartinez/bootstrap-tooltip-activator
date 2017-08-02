@@ -1,3 +1,3 @@
-import bootstrapTooltipActivator from 'bootstrap-tooltip-activator/components/bootstrap-tooltip-activator';
+import bootstrapTooltipActivator from 'bootstrap4-tooltip-activator/components/bootstrap4-tooltip-activator';
 
 export default bootstrapTooltipActivator;
