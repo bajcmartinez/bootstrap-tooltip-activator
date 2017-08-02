@@ -1,6 +1,6 @@
 {
   "name": "bootstrap4-tooltip-activator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Ember addon for Bootstrap 4 tooltips",
   "directories": {
     "doc": "doc",
